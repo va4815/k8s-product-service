@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  k8s-product-service:
+    image: k8s-product-service:0.0.1-SNAPSHOT
+    container_name: k8s-product-service
+    ports:
+      - "8081:8081"
+    restart: unless-stopped
