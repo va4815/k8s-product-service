@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS product (
+    id SERIAL PRIMARY KEY,
+    product_code VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL
+);
