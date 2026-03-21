@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.va4815</groupId>
     <artifactId>k8s-product-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>k8s-product-service</name>
     <description>k8s-product-service</description>
     <url/>
