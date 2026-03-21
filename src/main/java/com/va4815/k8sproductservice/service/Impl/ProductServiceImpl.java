@@ -1,6 +1,7 @@
 package com.va4815.k8sproductservice.service.Impl;
 
 import com.va4815.k8sproductservice.entity.Product;
+import com.va4815.k8sproductservice.exception.ProductAlreadyExistsException;
 import com.va4815.k8sproductservice.repository.ProductRepository;
 import com.va4815.k8sproductservice.model.ProductDTO;
 import com.va4815.k8sproductservice.service.ProductService;
@@ -20,6 +21,10 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductDTO saveProduct(ProductDTO product) {
+        if (productRepository.existsByProductCode(product.getProductCode())) {
+            throw new ProductAlreadyExistsException("Product already exists");
+        }
+
         Product productEntity = toEntity(product);
         Product savedProduct = productRepository.save(productEntity);
         return toModel(savedProduct);
