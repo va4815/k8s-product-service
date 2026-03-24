@@ -5,11 +5,14 @@ services:
     image: postgres:15
     container_name: postgresdb
     environment:
+      APP_ENV: docker
       POSTGRES_DB: productdb
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
     ports:
       - "5432:5432"
+    volumes:
+      - ${DB_DATA_PATH}:/var/lib/postgresql/data
 
   product-service:
     image: va4815/k8s-product-service:0.0.2
